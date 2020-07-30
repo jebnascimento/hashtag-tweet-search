@@ -1,0 +1,14 @@
+{
+  "name": "twit",
+  "version": "1.0.0",
+  "description": "tweet search api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jose Batista",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
