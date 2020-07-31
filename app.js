@@ -10,9 +10,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    var T = new twit(config);
 
-    T.get('search/tweets', {
+    var Tweet = new twit(config);
+
+    Tweet.get('search/tweets', {
         q: '#got',
         count: 10,
         result_type: "mixed" 
