@@ -1,11 +1,13 @@
 const express = require('express');
 const twit = require("twit");
+const bodyParser = require('body-parser')
 var config = require('./config.js');  
 const port = 8000;
 const app = express();
 
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     var T = new twit(config);
@@ -19,8 +21,17 @@ app.get('/', (req, res) => {
     }).then(function (result) {
         console.log('data', result.data);
     });
-    res.render('index', {welcomeMessage: "Bem-vindo lindão"});
+    res.render('index');
 });
+
+app.post('/', function (req, res) {
+    console.log(req.body.hashtag);
+    if (req.body.hashtag !== undefined) {
+      res.render('index',  {hashtag: req.body.hashtag})
+    }
+    res.render('index',  {hashtag: null})
+    
+  });
 
 
 app.listen(port, err => {
