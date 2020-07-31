@@ -1,7 +1,7 @@
 const express = require('express');
 const twit = require("twit");
 var config = require('./config.js');  
-const port = 3000;
+const port = 8000;
 const app = express();
 
 
@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     var T = new twit(config);
 
     T.get('search/tweets', {
-        q: '#100DaysOfCode',
+        q: '#got',
         count: 10,
         result_type: "mixed" 
     }).catch(function (err) {
