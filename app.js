@@ -11,12 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
 
-    var Tweet = new twit(config);
+    var Twitter = new twit(config);
 
-    Tweet.get('search/tweets', {
-        q: '#got',
+    Twitter.get('search/tweets', {
+        q: '#android',
         count: 10,
-        result_type: "mixed" 
+        result_type: "mixed",
+        lang: "pt" 
     }).catch(function (err) {
         console.log('caught error', err.stack)
     }).then(function (result) {
