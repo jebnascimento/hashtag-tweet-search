@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
 //     query: 'brazil'
 //     }).catch(function (err) {
 //     console.log('caught error', err.stack)
-//     }).then(function (result) {
-//         console.log('data', result.data);
+//     }).then(function (tweets) {
+//         console.log('data', tweets.data);
 //     });
 // });
 
@@ -37,7 +37,9 @@ app.post('/', function (req, res) {
             q: req.body.hashtag, // use the user posted hashtag value as the query
             count: 30,
             result_type: "recent",
-            lang: "pt"
+            lang: "pt",
+            tweet_mode:'extended',
+            include_entities: true
     
         }).catch(function (err) {
             console.log('caught error', err.stack)
@@ -46,11 +48,13 @@ app.post('/', function (req, res) {
                 tweets: null,
                 error: err.stack
             });
-        }).then(function (result) {
-            // Render the index page passing in the hashtag and the Twitter API results
+
+        }).then(function (tweets) {
+           
+            console.log('data', tweets.data);
             res.render('index', {
                 hashtag: req.body.hashtag, 
-                tweets: result.data,
+                tweets: tweets.data,
                 error: null
             });
         });

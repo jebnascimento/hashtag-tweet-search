@@ -45,11 +45,13 @@
         for (let index = 0; index < tweets.statuses.length; index++) {
             var createdDateTime = new Date(tweets.statuses[index].created_at);
 
-            tweetHTML += '<div class="col-sm-4"><div class="card mb-3">' +
+             if(tweets.statuses[index].retweeted_status !== undefined){
+                console.log('entrou aquiaaaaaaaaaaaaaaaaaaaa')
+                tweetHTML += '<div class="col-sm-4"><div class="card mb-3">' +
                 '<div class="card-body">' +
                 '<h5 class="card-title">@' + tweets.statuses[index].user.screen_name + '</h5>' +
                 '<h6 class="card-subtitle mb-2 text-muted">' + tweets.statuses[index].user.name + '</h6>' +
-                '<p class="card-text">' + tweets.statuses[index].text + '<</p>' +
+                '<p class="card-text">' + tweets.statuses[index].retweeted_status.full_text + '<</p>' +
                 '<p class="card-text"><i class="fa fa-retweet" aria-hidden="true"></i> ' + tweets.statuses[index].retweet_count + ' <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> ' + tweets.statuses[index].favorite_count + '</p>' +
                 
               //  '<a class="card-link" href="#">Another link</a>' +
@@ -57,6 +59,24 @@
                 '</div>' +
                 '</div>' +
                 '</div>';
+
+             } 
+             else{
+                tweetHTML += '<div class="col-sm-4"><div class="card mb-3">' +
+                '<div class="card-body">' +
+                '<h5 class="card-title">@' + tweets.statuses[index].user.screen_name + '</h5>' +
+                '<h6 class="card-subtitle mb-2 text-muted">' + tweets.statuses[index].user.name + '</h6>' +
+                '<p class="card-text">' + tweets.statuses[index].full_text + '<</p>' +
+                '<p class="card-text"><i class="fa fa-retweet" aria-hidden="true"></i> ' + tweets.statuses[index].retweet_count + ' <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> ' + tweets.statuses[index].favorite_count + '</p>' +
+                
+              //  '<a class="card-link" href="#">Another link</a>' +
+                '<p class="card-text"><small class="text-muted">'+createdDateTime.toString()+' </small></p>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+
+             }
+            
         }
         tweetHTML += '</div>';
 
