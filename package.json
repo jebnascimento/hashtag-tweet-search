@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/nodemon/bin/nodemon.js app"
+    "start": "lsof -i :3000 -t | xargs kill | node_modules/nodemon/bin/nodemon.js app"
   },
   "author": "Jose Batista",
   "license": "ISC",
