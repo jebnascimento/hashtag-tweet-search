@@ -1,0 +1,96 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #f0f0f5;
+  -webkit-font-smoothing: antialiased;
+}
+
+input{
+  font: 400 20px sans-serif;
+  height: 50px;
+}
+
+button{
+  font: 400 20px sans-serif;
+  height: 50px;
+  cursor: pointer;
+}
+
+form input[type=text]
+{
+  width: 500px;
+  color: #333;
+  border: 1px solid #dcdce6;
+  border-radius: 10px;
+  padding: 0 24px;
+
+}
+
+
+form input[type=submit]
+{
+  color: white;
+  opacity: 80%;
+
+  background-color:#1DA1F2;
+  border: 1px solid #dcdce6;
+  border-radius: 10px;
+  padding: 0 24px;
+
+}
+button[type=button]{
+  color: white;
+  opacity: 80%;
+  background-color:#3fb30a;
+  border: 1px solid #dcdce6;
+  border-radius: 10px;
+  margin-left: 4px;
+  padding: 0 24px;
+
+}
+button:hover{
+  opacity: 100%;
+}
+
+#search:hover{
+  opacity: 100%;
+}
+
+
+form textarea
+{
+  width: 100%;
+  resize: vertical;
+  min-height: 140px;
+  color: #333;
+  border: 1px solid #dcdce6;
+  border-radius: 8px;
+  padding: 16px 24px;
+  line-height: 24px;
+
+}
+
+.main-tweets{
+  padding-bottom: 10px;
+}
+
+.main-tweets h3{
+  font-size: 26px;
+  font-weight: bolder;
+}
+
+.row{
+  border-radius: 5px;
+}
+.card-body{
+  background-color: white;
+}
+
+.card-body.approved{
+  background-color: rgb(166, 246, 166);
+}

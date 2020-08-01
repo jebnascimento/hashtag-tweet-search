@@ -1,5 +1,6 @@
+<link href= "../../public/css/global.css" rel="stylesheet" type="text/css" />
 <% if(hashtag !== null){ %>
-  <div align="center">
+  <div class="main-tweets" align="center">
       <h3>Principais Tweets para <%- hashtag %></h3>
   </div>
 
@@ -11,18 +12,18 @@
 <% if(tweets !== null){ %>
 
 <script>
-  let tweets = <%- JSON.stringify(tweets) %>;
+  let tweetstr = <%- JSON.stringify(tweets) %>;
   let tweetHTML = '<div class="row">';
-  for (let index = 0; index < tweets.statuses.length; index++) {
-      var createdDateTime = new Date(tweets.statuses[index].created_at);
+  for (let index = 0; index < tweetstr.statuses.length; index++) {
+      var createdDateTime = new Date(tweetstr.statuses[index].created_at);
 
-      if(tweets.statuses[index].retweeted_status !== undefined){
-          tweetHTML += '<div class="col-sm-4"><div class="card mb-3">' +
-          '<div class="card-body">' +
-          '<h5 class="card-title">@' + tweets.statuses[index].user.screen_name + '</h5>' +
-          '<h6 class="card-subtitle mb-2 text-muted">' + tweets.statuses[index].user.name + '</h6>' +
-          '<p class="card-text">' + tweets.statuses[index].retweeted_status.full_text + '<</p>' +
-          '<p class="card-text"><i class="fa fa-retweet" aria-hidden="true"></i> ' + tweets.statuses[index].retweet_count + ' <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> ' + tweets.statuses[index].favorite_count + '</p>' +
+      if(tweetstr.statuses[index].retweeted_status !== undefined){
+          tweetHTML += '<div class="col-sm-4"><div class="card rounded-4 mr-3 ml-3 mb-3">' +
+          '<div class="card-body" onclick="approved(this)">' +
+          '<h5 class="card-title">@' + tweetstr.statuses[index].user.screen_name + '</h5>' +
+          '<h6 class="card-subtitle mb-2 text-muted">' + tweetstr.statuses[index].user.name + '</h6>' +
+          '<p class="card-text">' + tweetstr.statuses[index].retweeted_status.full_text + '<</p>' +
+          '<p class="card-text"><i class="fa fa-retweet" aria-hidden="true"></i> ' + tweetstr.statuses[index].retweet_count + ' <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> ' + tweetstr.statuses[index].favorite_count + '</p>' +
           
         //  '<a class="card-link" href="#">Another link</a>' +
           '<p class="card-text"><small class="text-muted">'+createdDateTime.toString()+' </small></p>' +
@@ -32,12 +33,12 @@
 
       } 
       else{
-          tweetHTML += '<div class="col-sm-4"><div class="card mb-3">' +
-          '<div class="card-body">' +
-          '<h5 class="card-title">@' + tweets.statuses[index].user.screen_name + '</h5>' +
-          '<h6 class="card-subtitle mb-2 text-muted">' + tweets.statuses[index].user.name + '</h6>' +
-          '<p class="card-text">' + tweets.statuses[index].full_text + '<</p>' +
-          '<p class="card-text"><i class="fa fa-retweet" aria-hidden="true"></i> ' + tweets.statuses[index].retweet_count + ' <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> ' + tweets.statuses[index].favorite_count + '</p>' +
+          tweetHTML += '<div class="col-sm-4"><div class="card rounded-4 mr-3 ml-3 mb-3">' +
+          '<div class="card-body" onclick="approved(this)">' +
+          '<h5 class="card-title">@' + tweetstr.statuses[index].user.screen_name + '</h5>' +
+          '<h6 class="card-subtitle mb-2 text-muted">' + tweetstr.statuses[index].user.name + '</h6>' +
+          '<p class="card-text">' + tweetstr.statuses[index].full_text + '<</p>' +
+          '<p class="card-text"><i class="fa fa-retweet" aria-hidden="true"></i> ' + tweetstr.statuses[index].retweet_count + ' <i class="fa fa-heart" style="color:red;" aria-hidden="true"></i> ' + tweetstr.statuses[index].favorite_count + '</p>' +
           
         //  '<a class="card-link" href="#">Another link</a>' +
           '<p class="card-text"><small class="text-muted">'+createdDateTime.toString()+' </small></p>' +

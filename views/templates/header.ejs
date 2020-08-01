@@ -1,11 +1,15 @@
+<link href= "../../public/css/global.css" rel="stylesheet" type="text/css" />
+
 <div class="container">
-    <div class="form mb-2 mt-2"> 
-    <fieldset>
-        <form action="/tweets" method="post">
-            <div class="input-group">
-            <input class="form-control" name="hashtag" placeholder="ex. #covid-19" required type="text">
-            <input type="submit" value="buscar!">
-            </div>
-        </form>
-    </fieldset>
+    <div class="form mb-2 mt-2 d-flex justify-content-center"> 
+        <fieldset>
+            <form action="/tweets" method="post">
+                <div class="input-group">
+                    <input class="input-text" name="hashtag" placeholder="ex. #covid-19" required type="text">
+                    <input id=search class="ml-2"type="submit" value="buscar">
+                    <button type="button" class="approved-button">aprovar!</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
 </div>
