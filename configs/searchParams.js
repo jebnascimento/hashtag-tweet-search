@@ -1,6 +1,6 @@
 module.exports = {
   count: 50,
-  result_type: "recent",
+  result_type: "mixed",
   lang: "pt",
   tweet_mode:'extended',
   include_entities: true,

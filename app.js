@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
-const port = 3000;
 
 const indexRoute = require('./routes/index');
 const tweetRoute = require('./routes/tweets');
@@ -17,7 +16,7 @@ app.use(express.static('public'));
 app.get('/', indexRoute);
 app.post('/tweets', tweetRoute);
 
-
+var port = process.env.port || 3000;
 app.listen(port, err => {
     console.log(`Server is listening on ${port}`);
 });

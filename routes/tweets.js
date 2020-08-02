@@ -10,9 +10,9 @@ router.post('/tweets', function (req, res) {
 if (req.body.hashtag !== null) {
 
     let Twitter = new twit(auth);
-
+        
         Twitter.get('search/tweets', {
-            q: req.body.hashtag, // use the user posted hashtag value as the query
+            q: req.body.hashtag, 
             count: search.count,
             result_type: search.result_type,
             lang: search.lang,
