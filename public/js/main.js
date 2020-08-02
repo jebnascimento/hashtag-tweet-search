@@ -9,3 +9,4 @@ function approved(elem) {
     elem.classList.add('approved');
   }
 }
+

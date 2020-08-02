@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const twit = require("twit");
-var auth = require('../configs/twitterAuth');  
+var auth = require('../configs/twitterAuth');
+search = require('../configs/searchParams');
 
 
 router.post('/tweets', function (req, res) {
@@ -12,12 +13,12 @@ if (req.body.hashtag !== null) {
 
         Twitter.get('search/tweets', {
             q: req.body.hashtag, // use the user posted hashtag value as the query
-            count: 30,
-            result_type: "recent",
-            lang: "pt",
-            tweet_mode:'extended',
-            include_entities: true,
-            place_country: 'br'
+            count: search.count,
+            result_type: search.result_type,
+            lang: search.lang,
+            tweet_mode:search.tweet_mode,
+            include_entities: search.include_entities,
+            place_country: search.place_country
 
         }).catch(function (err) {
 
@@ -30,9 +31,6 @@ if (req.body.hashtag !== null) {
             });
 
         }).then(function (tweets) {
-
-            console.log('data', tweets.data);
-
             res.render('index', {
             hashtag: req.body.hashtag, 
             tweets: tweets.data,
