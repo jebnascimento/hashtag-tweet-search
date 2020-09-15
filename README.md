@@ -6,7 +6,7 @@ A simple app using twitter api search to get tweets using oriented searchs by wo
 
 ## prerequisites
 - nodejs
-- https://nodejs.org/en/download/package-manager/
+- developer twitter account
 
 ## to run
 
