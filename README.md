@@ -9,7 +9,7 @@ A simple app using twitter api search to get tweets using oriented searchs by wo
 - developer twitter account
 
 ## to run
-
+- go to ./config and put your credentials in twitterAuth.js
 - npm install
 - npm start
 
